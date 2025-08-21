@@ -1,0 +1,75 @@
+docker-compose up -d
+
+# 🚀 CLEAN DOCKER SETUP - React Frontend with Dynamic IP Detection
+docker-compose up -d
+
+# ✅ FIXED: IP DETECTION NOW WORKS CORRECTLY
+# - 📱 QR codes now use the correct working IP: 192.168.1.167:3443
+# - 🌐 Real-time system IP address detection working
+# - 📱 Phone-scannable QR codes with correct IP address
+# - 🏠 Both localhost and real IP URLs functional
+
+# Services:
+# - frontend: React TypeScript app (frontend-react directory)  
+# - backend: Python FastAPI object detection
+
+# Individual service control:
+frontend : docker-compose start frontend
+backend : docker-compose start backend
+
+# Check running containers:
+docker ps
+
+# View logs (including IP detection):
+docker-compose logs frontend
+docker-compose logs backend
+
+# Stop all services:
+docker-compose down
+
+# Clean rebuild (if needed):
+docker-compose down --remove-orphans
+docker-compose build --no-cache
+docker-compose up -d
+
+# ✅ WORKING URLs:
+Main interface: https://192.168.1.167:3443 (PREFERRED - Use this one!)
+Phone interface: https://192.168.1.167:3443/phone
+Backend API: http://localhost:8080
+Config API: http://localhost:3000/api/config
+
+# 🔧 LATEST WEBRTC FIXES APPLIED:
+# - Fixed WebRTC state management issues
+# - Separated socket event listeners to prevent duplicates  
+# - Enhanced error recovery with peer connection recreation
+# - Improved logging for WebRTC signaling flow
+# - Fixed "InvalidStateError: Called in wrong state" issues
+
+# ✅ REAL IP URLs (WORKING):
+Main interface HTTPS: https://192.168.1.167:3443
+Phone interface HTTPS: https://192.168.1.167:3443/phone
+# ^ These URLs now work correctly! QR codes use the real IP.
+
+# 📱 Phone Usage (NEW MANUAL CONTROL):
+# ⚠️ IMPORTANT: Use HTTPS URLs for camera access!
+# 1. Open phone interface: https://192.168.1.167:3443/phone (HTTPS required!)
+# 2. Click "📹 Setup Camera" to access camera
+# 3. Allow camera permission when browser prompts
+# 4. Wait for "✅ Camera Ready" status
+# 5. Open main interface: https://192.168.1.167:3443 
+# 6. Click "🔗 Connect to Browser" on phone when ready
+# 7. ✅ Video stream will now display on main page!
+
+# Production URLs:
+"real_ip": "10.71.252.230",
+"localhost_ip": "localhost", 
+"localhost_url": "http://localhost:3000",
+"localhost_phone_url": "http://localhost:3000/phone",
+"real_ip_url": "https://10.71.252.230:3443",
+"real_ip_phone_url": "https://10.71.252.230:3443/phone",
+"local_ip": "10.71.252.230",
+"frontend_url": "https://10.71.252.230:3443", 
+"phone_url": "https://10.71.252.230:3443/phone"
+
+# Note: frontend-react directory contains the main React frontend
+# The old vanilla JS frontend has been removed

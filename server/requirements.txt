@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+aiortc
+numpy
+opencv-python-headless
+requests
+python-multipart
+torch
+torchvision
+pillow
+qrcode[pil]
+ultralytics
+scipy

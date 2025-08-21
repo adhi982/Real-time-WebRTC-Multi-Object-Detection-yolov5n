@@ -1,0 +1,11 @@
+step 1 : When WiFi Changes - Run This:
+.\quick_ip_update.ps1    
+
+step 2:  Check current IP in docker-compose.yml
+Get-Content docker-compose.yml | Select-String "HOST_IP"
+
+step 3: Check your actual system IP:
+(Get-NetAdapter | Where-Object {$_.Name -like "*Wi-Fi*" -and $_.Status -eq "Up"} | Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.IPAddress -notlike "169.254.*"}).IPAddress
+
+step 4 : To get the HTTPS URL
+docker-compose logs frontend 
